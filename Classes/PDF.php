@@ -13,6 +13,7 @@ namespace ConsoleTVs\Invoices\Classes;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Support\Facades\View;
+use Dompdf\Adapter\CPDF;
 
 /**
  * This is the PDF class.
@@ -39,6 +40,7 @@ class PDF
 
         $options->set('isRemoteEnabled', true);
         $options->set('isPhpEnabled', true);
+        $options->setDefaultPaperSize(CPDF::$PAPER_SIZES['a4']);
 
         $pdf = new Dompdf($options);
 
